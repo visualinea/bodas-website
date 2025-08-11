@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
 
-const PHOTOS_SOURCE_DIR = '/Users/david/Documents/Dynatec/Dynatec/bodas/photos';
+const PHOTOS_SOURCE_DIR = path.join(__dirname, '..', 'photos');
 const PUBLIC_PHOTOS_DIR = path.join(__dirname, '..', 'public', 'photos');
 const MANIFEST_PATH = path.join(__dirname, '..', 'public', 'photos.manifest.json');
 
@@ -33,6 +33,14 @@ async function processPhotos() {
   // Create public/photos directory if it doesn't exist
   if (!fs.existsSync(PUBLIC_PHOTOS_DIR)) {
     fs.mkdirSync(PUBLIC_PHOTOS_DIR, { recursive: true });
+  }
+  
+  // Check if source directory exists
+  if (!fs.existsSync(PHOTOS_SOURCE_DIR)) {
+    console.log('⚠️  Source photos directory not found, skipping photo processing');
+    // Create empty manifest
+    fs.writeFileSync(MANIFEST_PATH, JSON.stringify([], null, 2));
+    return;
   }
   
   // Read all JPEG files from source directory

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://bodas-citroen-ds.vercel.app'),
   title: "Citroën DS 23 Pallas 'Tiburón' para bodas en Madrid | Con chófer",
   description: "Un clásico elegante y atemporal para vuestro gran día. Servicio con chófer, recogida, trayecto y fotos con el coche. Madrid y alrededores. Consultad disponibilidad.",
   keywords: ['citroën ds', 'coche boda', 'alquiler coche boda madrid', 'ds 23 pallas', 'tiburón', 'chófer boda'],

@@ -42,3 +42,6 @@ dist/
 # Temporary folders
 tmp/
 temp/
+
+# Source photos (copied to public/photos during build)
+photos/
