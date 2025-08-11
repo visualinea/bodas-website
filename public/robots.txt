@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://bodas-citroen-ds.vercel.app/sitemap.xml
