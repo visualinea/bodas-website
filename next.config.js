@@ -5,13 +5,20 @@ const nextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
+  // Disable output file tracing entirely to prevent micromatch stack overflow
+  output: 'standalone',
   experimental: {
-    // Reduce build trace size to prevent stack overflow
-    outputFileTracingIncludes: {
-      '/': ['./public/photos.manifest.json'],
-    },
+    outputFileTracingRoot: process.cwd(),
     outputFileTracingExcludes: {
-      '/': ['./photos/**/*', './node_modules/@next/swc-*/**/*'],
+      '*': [
+        'node_modules/@swc/core-linux-x64-gnu',
+        'node_modules/@swc/core-linux-x64-musl', 
+        'node_modules/@esbuild/linux-x64',
+        '.git/**/*',
+        'photos/**/*',
+        '**/*.md',
+        '**/*.map',
+      ],
     },
   },
   async headers() {
