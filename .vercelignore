@@ -1,0 +1,32 @@
+# Vercel ignore patterns to reduce build complexity and prevent stack overflow
+
+# Source photos directory (copied to public/photos during build)
+photos/
+
+# Development and build artifacts
+.git/
+node_modules/.cache/
+.next/cache/
+
+# Documentation and non-essential files
+*.md
+README*
+CHANGELOG*
+LICENSE*
+
+# Source maps and debug files
+**/*.map
+**/*.d.ts.map
+
+# Large binary dependencies that can cause tracing issues
+node_modules/@swc/
+node_modules/@esbuild/
+node_modules/sharp/vendor/
+
+# Scripts directory (not needed for runtime)
+scripts/
+
+# Development configuration
+.env.example
+.vscode/
+.idea/

@@ -37,9 +37,10 @@ async function processPhotos() {
   
   // Check if source directory exists
   if (!fs.existsSync(PHOTOS_SOURCE_DIR)) {
-    console.log('⚠️  Source photos directory not found, skipping photo processing');
-    // Create empty manifest
+    console.log('⚠️  Source photos directory not found, creating empty manifest');
+    // Create empty manifest to prevent build errors
     fs.writeFileSync(MANIFEST_PATH, JSON.stringify([], null, 2));
+    console.log('📄 Empty manifest created for Vercel build compatibility');
     return;
   }
   
