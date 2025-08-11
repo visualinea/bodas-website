@@ -23,8 +23,7 @@ node_modules/@swc/
 node_modules/@esbuild/
 node_modules/sharp/vendor/
 
-# Scripts directory (not needed for runtime)
-scripts/
+# Note: scripts/ is needed for build process, so not ignoring it
 
 # Development configuration
 .env.example
